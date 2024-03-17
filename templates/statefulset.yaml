@@ -43,7 +43,6 @@ spec:
       name: {{ .Values.volume.name }}
     spec:
       accessModes: {{ .Values.volume.accessModes | toYaml | nindent 6 }}
-#      storageClassName: "{{ .Values.volume.storageClassName }}"
       resources:
         requests:
           storage: {{ .Values.volume.storageSize }}

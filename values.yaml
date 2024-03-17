@@ -19,7 +19,6 @@ volume:
   name: "kafka-data"
   accessModes: ["ReadWriteOnce"]
   storageSize: "1Gi"
-  #storageClassName: "local-path"
   
 
 service:
