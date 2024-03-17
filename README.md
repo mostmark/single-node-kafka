@@ -24,3 +24,4 @@ Example of how to use a single node Kafka 3.7 cluster on OpenShift using a Helm 
 
     # To clean up
     helm uninstall single-node
+    oc delete pvc kafka-data-single-node-kafka-0
