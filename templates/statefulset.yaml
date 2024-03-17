@@ -1,0 +1,50 @@
+# my-kafka-chart/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Release.Name }}-kafka
+spec:
+  serviceName: "{{ .Values.service.name }}"
+  replicas: {{ .Values.kafka.replicas }}
+  selector:
+    matchLabels:
+      app: kafka-app
+  template:
+    metadata:
+      labels:
+        app: kafka-app
+    spec:
+      containers:
+      - name: kafka-app
+        image: {{ .Values.kafka.imageName }}
+        ports:
+        - containerPort: 9092
+        env:
+        - name: KAFKA_CFG_NODE_ID
+          value: "{{ .Values.kafka.nodeID }}"
+        - name: KAFKA_CFG_PROCESS_ROLES
+          value: "{{ .Values.kafka.processRoles }}"
+        - name: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
+          value: "{{ .Values.kafka.controllerQuorumVoters }}"
+        - name: KAFKA_CFG_LISTENERS
+          value: "{{ .Values.kafka.listeners }}"
+        - name: KAFKA_CFG_ADVERTISED_LISTENERS
+          value: "{{ .Values.kafka.advertisedListeners }}"
+        - name: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+          value: "{{ .Values.kafka.listenerSecurityProtocolMap }}"
+        - name: KAFKA_CFG_CONTROLLER_LISTENER_NAMES
+          value: "{{ .Values.kafka.controllerListenerNames }}"
+        - name: KAFKA_CFG_INTER_BROKER_LISTENER_NAME
+          value: "{{ .Values.kafka.interBrokerListenerName }}"
+        - name: KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE
+          value: "{{ .Values.kafka.auto.create.topics.enable }}"
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ .Values.volume.name }}
+    spec:
+      accessModes: {{ .Values.volume.accessModes | toYaml | nindent 6 }}
+#      storageClassName: "{{ .Values.volume.storageClassName }}"
+      resources:
+        requests:
+          storage: {{ .Values.volume.storageSize }}
+

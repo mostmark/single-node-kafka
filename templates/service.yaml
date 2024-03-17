@@ -1,0 +1,17 @@
+# my-kafka-chart/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+spec:
+  selector:
+    app: kafka-app
+  ports:
+    {{- range .Values.service.ports }}
+    - name: {{ .name }}
+      protocol: TCP
+      port: {{ .port }}
+      targetPort: {{ .targetPort }}
+    {{- end }}
+  clusterIP: {{ .Values.service.clusterIP }}
+

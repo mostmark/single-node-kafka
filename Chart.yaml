@@ -1,0 +1,4 @@
+apiVersion: v2
+description: A Helm chart for deploying Kafka with StatefulSet
+name: single-node-kafka
+version: 0.1.0
