@@ -13,7 +13,7 @@ kafka:
   auto:
     create:
       topics:
-        enable: false
+        enable: true
 
 volume:
   name: "kafka-data"
