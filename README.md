@@ -1,6 +1,6 @@
 # Single Node Kafka cluster on OpenShift
 
-Example of how to use a single node Kafka 3.7 cluster on OpenShift using a Helm chart. This can be deployed on the [Red Hat OpenShift Developer Sandbox](https://developers.redhat.com/developer-sandbox) environment.
+Example of how to use a single node Kafka 3.7 cluster on OpenShift using a Helm chart. This can be deployed on the [Red Hat OpenShift Developer Sandbox](https://developers.redhat.com/developer-sandbox) environment for development and testing.
 
     git clone https://github.com/mostmark/single-node-kafka.git && cd single-node-kafka
 
