@@ -26,7 +26,7 @@ Create the topic my-topic:
 bin/kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 1 --replication-factor 1 --topic my-topic
 ```
 
-Produce some messages on the topic:
+Produce some messages to the topic:
 ```
 bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic my-topic
 ```
