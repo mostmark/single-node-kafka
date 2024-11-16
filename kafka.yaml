@@ -28,7 +28,7 @@ spec:
    spec:
      containers:
      - name: kafka
-       image: quay.io/strimzi/kafka:latest-kafka-3.7.0
+       image: quay.io/strimzi/kafka:latest-kafka-3.9.0
        command:
          - /bin/sh
          - -c
